@@ -1,3 +1,8 @@
+/* showPage function takes a intager page number and a student list jQuary object
+    this function will calculate which students is going to be show on the page, and hide all students that is not on the page.
+    then function will mark targe page a tag by give it a class name active;
+*/
+
 function showPage(pageNum,students){
   students.hide();
   let $studentPointer = students.first();
@@ -26,7 +31,11 @@ function showPage(pageNum,students){
     $linkPointer = $currentLink;
   }
 }
-
+/*
+  appendPageLinks function is going to take a student list jQuary object
+  it will calculate how many links should be create for each page,
+  it will add a div block to the html page, contain all links, each link for 10 students.
+*/
 function appendPageLinks(studentList){
   let page = Math.ceil(studentList.length/10);
   $('.page').append("<div class=\"pagination\">"
@@ -36,5 +45,6 @@ function appendPageLinks(studentList){
   }
   $('.page').append("</ul>" + "</div>")
 }
+
 appendPageLinks($(".student-item"));
 showPage(1,$(".student-item"));
